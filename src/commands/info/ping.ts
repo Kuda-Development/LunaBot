@@ -37,7 +37,7 @@ export default class PingCommand extends Command {
         new Embed()
           .setAuthor({
             iconUrl: ctx.client.me.avatarURL(),
-            name: `Hi user: ${ctx.author.username}`,
+            name: `Hi ${ctx.author.username}`,
           })
           .setColor(process.env.DISCORD_EMBED_COLOR as ColorResolvable)
           .setDescription(stripIndent`> My latency is **${ping}ms**`),

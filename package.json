@@ -5,7 +5,9 @@
   "main": "src/index.ts",
   "scripts": {
     "start:prod": "node dist/index.js",
-    "start:dev": "tsc-watch --onSuccess \"npm run start:prod\""
+    "start:dev": "tsc-watch --onSuccess \"npm run start:prod\"",
+    "generate:db": "prisma generate",
+    "push:db": "prisma db push"
   },
   "repository": {
     "type": "git",
