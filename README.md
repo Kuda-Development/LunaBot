@@ -1,18 +1,18 @@
 # LunaBot - DiscordBot 🌙
 
-- Este bot utiliza la biblioteca de Discord Seyfert además del cliente de base de datos que usamos Prisma con MongoDB.
+- This bot uses the Discord Seyfert library in addition to the database client we use Prisma with MongoDB.
 
-## Comenzando 🚀
+## Getting started 🚀
 
-- Cambia el archivo .env.example a .env.
-- Cambia las variables de entorno.
+- Change the .env.example file to .env.
+- Change the environment variables.
 
 ```env
-# Principales 🌟
+# principals
 
-DISCORD_BOT_TOKEN="" # Aquí está el token del bot de Discord
-DISCORD_APP_ID="" # Aquí está el ID de la aplicación del bot de Discord
-MONGO_DATABASE_URL="" # Aquí está el punto final de la base de datos
+DISCORD_BOT_TOKEN="" # Here is the Discord bot token.
+DISCORD_APP_ID="" # Here is the Discord bot's application ID
+MONGO_DATABASE_URL="" # Here is the database endpoint
 ```
 
 ## Contribution 💡
