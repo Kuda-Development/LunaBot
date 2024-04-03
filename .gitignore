@@ -1,0 +1,7 @@
+# innecesary 
+node_modules
+dist
+
+# environment
+.env
+.env.local

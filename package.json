@@ -1,0 +1,27 @@
+{
+  "name": "lunabot",
+  "version": "1.0.0",
+  "description": "A simple discord bot using Seyfert",
+  "main": "src/index.ts",
+  "scripts": {
+    "start:prod": "node dist/index.js",
+    "start:dev": "tsc-watch --onSuccess \"npm run start:prod\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kuda-Development/LunaBot.git"
+  },
+  "author": "EddyerDevv",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kuda-Development/LunaBot/issues"
+  },
+  "homepage": "https://github.com/Kuda-Development/LunaBot#readme",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "seyfert": "^1.2.1"
+  },
+  "devDependencies": {
+    "tsc-watch": "^6.2.0"
+  }
+}
