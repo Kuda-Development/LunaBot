@@ -10,5 +10,6 @@ module.exports = bot({
     base: "src",
     output: "dist",
     commands: "commands",
+    events: "events",
   },
 });

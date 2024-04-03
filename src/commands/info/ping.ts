@@ -4,6 +4,7 @@ import { Declare, Command, type CommandContext } from "seyfert";
   name: "ping",
   description: "Show the ping with discord",
   botPermissions: ["SendMessages"],
+  defaultMemberPermissions: ["SendMessages"],
 })
 export default class PingCommand extends Command {
   async run(ctx: CommandContext) {

@@ -6,8 +6,12 @@
  */
 
 import { Client } from "seyfert";
+import { PrismaClient } from "@prisma/client";
 import * as dotenv from "dotenv";
 dotenv.config();
 
+const prisma = new PrismaClient();
 const client = new Client({});
+
+client.prisma = prisma;
 client.start().then(() => client.uploadCommands());

@@ -1,0 +1,16 @@
+datasource db {
+  provider = "mongodb"
+  url      = env("MONGO_DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model GuildPrefix {
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  guildId String
+  prefix  String @default("lb!")
+
+  @@map("guild_prefixes")
+}
