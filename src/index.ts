@@ -14,4 +14,6 @@ const prisma = new PrismaClient();
 const client = new Client({});
 
 client.prisma = prisma;
-client.start().then(() => client.uploadCommands());
+client.start().then(() => {
+  client.uploadCommands();
+});

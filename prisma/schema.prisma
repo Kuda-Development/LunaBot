@@ -8,9 +8,9 @@ generator client {
 }
 
 model GuildPrefix {
-  id      String @id @default(auto()) @map("_id") @db.ObjectId
-  guildId String
-  prefix  String @default("lb!")
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  guild_id String
+  prefix   String @default("lb!")
 
   @@map("guild_prefixes")
 }

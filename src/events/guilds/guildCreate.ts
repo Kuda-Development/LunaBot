@@ -9,15 +9,44 @@ export default createEvent({
       `Joined ${guild.name} (${guild.id}) with ${guild.memberCount} members`
     );
 
-    const guildPrefix = await client.prisma.guildPrefix.create({
-      data: {
-        guildId: guild.id,
-        prefix: "lb!",
+    const guildPrefix = await client.prisma.guildPrefix.findFirst({
+      where: {
+        guild_id: {
+          equals: guild.id,
+        },
       },
     });
 
-    if (guildPrefix)
-      client.logger.info(`Has been created guild prefix to ${guild.id}`);
-    else client.logger.error(`Failed to create guild prefix to ${guild.id}`);
+    const guildLang = await client.prisma.guildLang.findFirst({
+      where: {
+        guild_id: {
+          equals: guild.id,
+        },
+      },
+    });
+
+    if (!guildPrefix) {
+      await client.prisma.guildPrefix
+        .create({
+          data: {
+            guild_id: guild.id,
+            prefix: "lb!",
+          },
+        })
+        .catch((err) => {
+          client.logger.error(err);
+        });
+    } else if (!guildLang) {
+      await client.prisma.guildLang
+        .create({
+          data: {
+            guild_id: guild.id,
+            lang: "en-US",
+          },
+        })
+        .catch((err) => {
+          client.logger.error(err);
+        });
+    }
   },
 });
