@@ -17,31 +17,12 @@ export default createEvent({
       },
     });
 
-    const guildLang = await client.prisma.guildLang.findFirst({
-      where: {
-        guild_id: {
-          equals: guild.id,
-        },
-      },
-    });
-
     if (!guildPrefix) {
       await client.prisma.guildPrefix
         .create({
           data: {
             guild_id: guild.id,
             prefix: "lb!",
-          },
-        })
-        .catch((err) => {
-          client.logger.error(err);
-        });
-    } else if (!guildLang) {
-      await client.prisma.guildLang
-        .create({
-          data: {
-            guild_id: guild.id,
-            lang: "en-US",
           },
         })
         .catch((err) => {
