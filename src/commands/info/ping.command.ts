@@ -1,10 +1,10 @@
 import {
-  Declare,
-  Command,
-  Embed,
-  createBooleanOption,
-  Options,
   type CommandContext,
+  createBooleanOption,
+  Declare,
+  Options,
+  Embed,
+  SubCommand,
 } from "seyfert";
 import { ColorResolvable } from "seyfert/lib/common";
 import { MessageFlags } from "discord-api-types/v10";
@@ -20,13 +20,12 @@ const options = {
 
 @Declare({
   name: "ping",
-  description: "Ping the bot",
-
+  description: "Ping of the bot",
   botPermissions: ["SendMessages"],
   defaultMemberPermissions: ["SendMessages"],
 })
 @Options(options)
-export default class PingCommand extends Command {
+export default class PingCommand extends SubCommand {
   async run(ctx: CommandContext<typeof options>) {
     const hide = ctx.options.hide ?? false;
     const ping = ctx.client.gateway.latency;
