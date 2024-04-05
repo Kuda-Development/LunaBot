@@ -30,8 +30,8 @@ importers:
         specifier: ^5.12.0
         version: 5.12.0
       seyfert:
-        specifier: ^1.2.1
-        version: 1.2.1
+        specifier: ^1.2.2
+        version: 1.2.2
     devDependencies:
       '@types/common-tags':
         specifier: ^1.8.4
@@ -234,8 +234,8 @@ packages:
     resolution: {integrity: sha512-DJnGAeenTdpMEH6uAJRK/uiyEIH9WVsUmoLwzudwGJUwZPp80PDBWPHXSAGNPwNvIXAbe7MSUB1zQFugFml66A==}
     engines: {node: '>=4'}
 
-  seyfert@1.2.1:
-    resolution: {integrity: sha512-3rGOoWe25n/pllPv8yzZqFWiJg9f+rlvDYF0czaprXqReztOzRfPOAPX6nIEaYNhI9VmcEUFEH4ExQSGplT9Pg==}
+  seyfert@1.2.2:
+    resolution: {integrity: sha512-iGTgqj2Z87I7S4DBuzCTH6otjKZYTbCBImbYI0jCyTxbC9WPM83qdXprodPTRoZdsmQatcUu+VG7eXh7gH5m6A==}
 
   shebang-command@2.0.0:
     resolution: {integrity: sha512-kHxr2zZpYtdmrN1qDjrrX/Z1rR1kG8Dx+gkpK1G4eXmvXswmcE1hTWBWYUzlraYw1/yZp6YuDY77YtvbN0dmDA==}
@@ -492,7 +492,7 @@ snapshots:
       redis-errors: 1.2.0
     optional: true
 
-  seyfert@1.2.1:
+  seyfert@1.2.2:
     dependencies:
       chokidar: 3.6.0
       discord-api-types: 0.37.78
