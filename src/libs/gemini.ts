@@ -18,10 +18,9 @@ const GeminiAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
 export const GenerativeAI = (data: GenerativeData) => {
   /* Configuration Free | changes switch to normal and pro */
   let generationConfig: GenerationConfig = {
-    temperature: 0.5,
-    stopSequences: ["\n"],
     topK: 40,
     topP: 0.9,
+    temperature: 0.5,
   };
   /* Model to use */
   const model: Model = data.model;
@@ -31,16 +30,12 @@ export const GenerativeAI = (data: GenerativeData) => {
       generationConfig = {
         ...generationConfig,
         temperature: 0.7,
-        topK: 40,
-        topP: 0.9,
       };
       break;
     case "pro":
       generationConfig = {
         ...generationConfig,
         temperature: 0.9,
-        topK: 40,
-        topP: 0.9,
       };
       break;
   }
