@@ -17,7 +17,7 @@ import { ColorResolvable } from "seyfert/lib/common";
 export default class EvalCommand extends SubCommand {
   async run(ctx: CommandContext) {
     ctx.write({
-      content: "test sub commands",
+      content: "This command is under development",
     });
   }
 
@@ -32,7 +32,7 @@ export default class EvalCommand extends SubCommand {
           .setColor(process.env.DISCORD_EMBED_COLOR as ColorResolvable)
           .setDescription(stripIndent`
             > Oh no, something went wrong! 
-            > \`${error}\``),
+            > **${error}**`),
       ],
     });
   }

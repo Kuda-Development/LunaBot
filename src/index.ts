@@ -18,6 +18,6 @@ client.prisma = prisma;
 client.setServices({
   middlewares: middlewares,
 });
-client.start().then(() => {
-  client.uploadCommands();
+client.start().then(async () => {
+  await client.uploadCommands();
 });
