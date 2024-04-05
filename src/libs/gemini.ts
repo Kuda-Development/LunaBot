@@ -1,7 +1,5 @@
 import {
   GoogleGenerativeAI,
-  HarmCategory,
-  HarmBlockThreshold,
   type GenerationConfig,
 } from "@google/generative-ai";
 import * as dotenv from "dotenv";
