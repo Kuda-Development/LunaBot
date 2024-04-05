@@ -43,11 +43,5 @@ export const GenerativeAI = (data: GenerativeData) => {
   return GeminiAI.getGenerativeModel({
     model: model,
     generationConfig: generationConfig,
-    safetySettings: [
-      {
-        category: HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,
-        threshold: HarmBlockThreshold.BLOCK_NONE,
-      },
-    ],
   });
 };
