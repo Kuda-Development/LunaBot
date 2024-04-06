@@ -12,7 +12,13 @@ import * as dotenv from "dotenv";
 dotenv.config();
 
 const prisma = new PrismaClient();
-const client = new Client({});
+const client = new Client({
+  commands: {
+    prefix: () => ["lb!"],
+    reply: () => false,
+    deferReplyResponse: () => ({ content: "Writing..." }),
+  },
+});
 
 client.prisma = prisma;
 client.setServices({

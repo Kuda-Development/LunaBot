@@ -12,7 +12,10 @@ interface GenerativeData {
   model: Model;
 }
 
-const GeminiAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
+const { getGenerativeModel } = new GoogleGenerativeAI(
+  process.env.GEMINI_API_KEY!
+);
+
 export const GenerativeAI = (data: GenerativeData) => {
   /* Configuration Free | changes switch to normal and pro */
   let generationConfig: GenerationConfig = {
@@ -38,7 +41,7 @@ export const GenerativeAI = (data: GenerativeData) => {
       break;
   }
 
-  return GeminiAI.getGenerativeModel({
+  return getGenerativeModel({
     model: model,
     generationConfig: generationConfig,
   });

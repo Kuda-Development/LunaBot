@@ -13,13 +13,9 @@ import { ColorResolvable } from "seyfert/lib/common";
   description: "This command evaluates code for only devs",
 })
 // @ts-ignore
-@Middlewares(["onlyDev"])
+@Middlewares(["onlyDev", "inDev"])
 export default class EvalCommand extends SubCommand {
-  async run(ctx: CommandContext) {
-    ctx.write({
-      content: "This command is under development",
-    });
-  }
+  async run() {}
 
   async onMiddlewaresError(ctx: CommandContext<{}, never>, error: string) {
     return await ctx.write({

@@ -6,6 +6,7 @@ import {
   Embed,
   Options,
   createStringOption,
+  Middlewares,
 } from "seyfert";
 import { ColorResolvable } from "seyfert/lib/common";
 import generative from "../../libs/generative";
@@ -22,6 +23,8 @@ const options = {
   description: "Generative text with your prompt",
 })
 @Options(options)
+// @ts-ignore
+@Middlewares(["inDev"])
 export default class TextCommand extends SubCommand {
   async run(ctx: CommandContext<typeof options>) {
     const prompt = ctx.options.prompt;
