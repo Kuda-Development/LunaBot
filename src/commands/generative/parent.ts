@@ -6,4 +6,4 @@ import TextCommand from "./text.command";
   description: "Commands for generative ai models with provider Huggingface",
 })
 @Options([TextCommand])
-export default class GenerativeCommands extends Command {}
+export default class Parent extends Command {}

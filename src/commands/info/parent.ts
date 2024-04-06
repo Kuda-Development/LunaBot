@@ -6,4 +6,4 @@ import PingCommand from "./ping.command";
   description: "Commands for info",
 })
 @Options([PingCommand])
-export default class InfoCommands extends Command {}
+export default class Parent extends Command {}

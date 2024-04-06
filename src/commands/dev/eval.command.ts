@@ -6,7 +6,6 @@ import {
   Middlewares,
   Embed,
 } from "seyfert";
-import { ColorResolvable } from "seyfert/lib/common";
 
 @Declare({
   name: "eval",
@@ -18,14 +17,16 @@ export default class EvalCommand extends SubCommand {
   async run() {}
 
   async onMiddlewaresError(ctx: CommandContext<{}, never>, error: string) {
+    const member = ctx.message ? ctx.message.member : ctx.interaction?.member;
+
     return await ctx.write({
       embeds: [
         new Embed()
           .setAuthor({
-            iconUrl: ctx.client.me.avatarURL(),
+            iconUrl: member?.avatarURL(),
             name: `Hi ${ctx.author.username}`,
           })
-          .setColor(process.env.DISCORD_EMBED_COLOR as ColorResolvable)
+          .setColor(`#${process.env.DISCORD_EMBED_COLOR}`)
           .setDescription(stripIndent`
             > Oh no, something went wrong! 
             > **${error}**`),

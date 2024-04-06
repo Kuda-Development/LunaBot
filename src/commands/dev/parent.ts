@@ -6,4 +6,4 @@ import EvalCommand from "./eval.command";
   description: "Commands for devs",
 })
 @Options([EvalCommand])
-export default class DevCommands extends Command {}
+export default class Parent extends Command {}
