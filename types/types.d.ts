@@ -10,4 +10,8 @@ declare module "seyfert" {
   interface RegisteredMiddlewares
     extends ParseMiddlewares<typeof middlewares> {}
   interface GlobalMetadata extends ParseMiddlewares<typeof middlewares> {}
+  interface InternalOptions {
+    withPrefix: true | false;
+    asyncCache: true | false;
+  }
 }

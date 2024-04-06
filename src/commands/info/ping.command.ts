@@ -30,16 +30,28 @@ export default class PingCommand extends SubCommand {
     const hide = ctx.options.hide ?? false;
     const ping = ctx.client.gateway.latency;
     const flags = hide ? MessageFlags.Ephemeral : undefined;
+    const member = ctx.message ? ctx.message : ctx.interaction;
+
+    const embed = new Embed()
+      .setAuthor({
+        iconUrl: member!.user.avatarURL(),
+        name: `Hi ${ctx.author.username}`,
+      })
+      .setColor(process.env.DISCORD_EMBED_COLOR as ColorResolvable);
+
+    if (ctx.message && hide)
+      return await ctx.write({
+        embeds: [
+          embed.setDescription(stripIndent`
+          > My latency is **${ping}ms**
+          
+          > The option "hide" not works in prefix commands.`),
+        ],
+      });
 
     await ctx.write({
       embeds: [
-        new Embed()
-          .setAuthor({
-            iconUrl: ctx.client.me.avatarURL(),
-            name: `Hi ${ctx.author.username}`,
-          })
-          .setColor(process.env.DISCORD_EMBED_COLOR as ColorResolvable)
-          .setDescription(stripIndent`> My latency is **${ping}ms**`),
+        embed.setDescription(stripIndent`> My latency is **${ping}ms**`),
       ],
       flags: flags,
     });
