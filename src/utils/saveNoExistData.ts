@@ -47,7 +47,8 @@ export default async ({
       .catch((err) => {
         client.logger.error(err);
       });
-  else if (!guildTicketSystem)
+
+  if (!guildTicketSystem)
     await client.prisma.guildTicketSystem
       .create({
         data: {
