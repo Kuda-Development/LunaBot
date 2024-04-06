@@ -9,6 +9,7 @@ import { Client } from "seyfert";
 import { PrismaClient } from "@prisma/client";
 import { middlewares } from "./middlewares";
 import * as dotenv from "dotenv";
+import saveNoExistData from "./utils/saveNoExistData";
 dotenv.config();
 
 const prisma = new PrismaClient();
@@ -21,6 +22,7 @@ const client = new Client({
 });
 
 client.prisma = prisma;
+client.saveNoExistData = saveNoExistData;
 client.setServices({
   middlewares: middlewares,
 });

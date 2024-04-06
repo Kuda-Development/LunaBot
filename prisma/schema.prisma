@@ -7,10 +7,22 @@ generator client {
   provider = "prisma-client-js"
 }
 
+// This is the model no use in the bot temporaly time.
 model GuildPrefix {
   id       String @id @default(auto()) @map("_id") @db.ObjectId
   guild_id String
   prefix   String @default("lb!")
 
   @@map("guild_prefixes")
+}
+
+model GuildTicketSystem {
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  guild_id    String
+  enabled     Boolean @default(false)
+  channel_id  String
+  category_id String
+  role_id     String
+
+  @@map("guild_ticket_system")
 }

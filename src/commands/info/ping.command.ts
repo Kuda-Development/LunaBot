@@ -6,14 +6,12 @@ import {
   Embed,
   SubCommand,
 } from "seyfert";
-import { ColorResolvable } from "seyfert/lib/common";
 import { MessageFlags } from "discord-api-types/v10";
 import { stripIndent } from "common-tags";
 
 const options = {
   hide: createBooleanOption({
-    name: "hide",
-    description: "Hide the embed",
+    description: "Hide the message",
     required: false,
   }),
 };
@@ -30,14 +28,14 @@ export default class PingCommand extends SubCommand {
     const hide = ctx.options.hide ?? false;
     const ping = ctx.client.gateway.latency;
     const flags = hide ? MessageFlags.Ephemeral : undefined;
-    const member = ctx.message ? ctx.message : ctx.interaction;
+    const member = ctx.message ? ctx.message.member : ctx.interaction?.member;
 
     const embed = new Embed()
       .setAuthor({
-        iconUrl: member!.user.avatarURL(),
+        iconUrl: member?.user.avatarURL(),
         name: `Hi ${ctx.author.username}`,
       })
-      .setColor(process.env.DISCORD_EMBED_COLOR as ColorResolvable);
+      .setColor(`#${process.env.DISCORD_EMBED_COLOR}`);
 
     if (ctx.message && hide)
       return await ctx.write({
