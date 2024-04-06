@@ -12,7 +12,7 @@ import {
   description: "This command evaluates code for only devs",
 })
 // @ts-ignore
-@Middlewares(["onlyDev", "inDev"])
+@Middlewares(["inDev"])
 export default class EvalCommand extends SubCommand {
   async run() {}
 

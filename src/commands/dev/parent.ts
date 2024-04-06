@@ -1,4 +1,4 @@
-import { Declare, Command, Options } from "seyfert";
+import { Declare, Command, Options, Middlewares } from "seyfert";
 import EvalCommand from "./eval.command";
 
 @Declare({
@@ -6,4 +6,6 @@ import EvalCommand from "./eval.command";
   description: "Commands for devs",
 })
 @Options([EvalCommand])
+// @ts-ignore
+@Middlewares(["onlyDev"])
 export default class Parent extends Command {}
