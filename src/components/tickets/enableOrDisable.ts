@@ -9,7 +9,7 @@ import {
 } from "seyfert";
 import wait from "../../utils/wait";
 
-export default class HelloWorldButton extends ComponentCommand {
+export default class EnableOrDisable extends ComponentCommand {
   componentType = "Button" as const;
 
   filter(ctx: ComponentContext<typeof this.componentType>) {
