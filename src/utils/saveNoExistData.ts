@@ -20,19 +20,15 @@ export default async ({
       ? data.guildId!
       : "";
 
-  const guildPrefix = await client.prisma.guildPrefix.findFirst({
+  const guildPrefix = await client.prisma.guildPrefix.findUnique({
     where: {
-      guild_id: {
-        equals: eventingUse,
-      },
+      guild_id: eventingUse,
     },
   });
 
-  const guildTicketSystem = await client.prisma.guildTicketSystem.findFirst({
+  const guildTicketSystem = await client.prisma.guildTicketSystem.findUnique({
     where: {
-      guild_id: {
-        equals: eventingUse,
-      },
+      guild_id: eventingUse,
     },
   });
 

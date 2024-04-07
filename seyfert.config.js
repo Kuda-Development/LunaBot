@@ -11,5 +11,6 @@ module.exports = bot({
     output: "dist",
     commands: "commands",
     events: "events",
+    components: "components",
   },
 });

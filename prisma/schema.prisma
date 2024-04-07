@@ -10,7 +10,7 @@ generator client {
 // This is the model no use in the bot temporaly time.
 model GuildPrefix {
   id       String @id @default(auto()) @map("_id") @db.ObjectId
-  guild_id String
+  guild_id String @unique
   prefix   String @default("lb!")
 
   @@map("guild_prefixes")
@@ -18,7 +18,7 @@ model GuildPrefix {
 
 model GuildTicketSystem {
   id          String  @id @default(auto()) @map("_id") @db.ObjectId
-  guild_id    String
+  guild_id    String  @unique
   enabled     Boolean @default(false)
   channel_id  String
   category_id String
